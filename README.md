@@ -1,6 +1,14 @@
+CONTRATO INTELIGENTE PARA SUSCRIPCIONES DE OPEN WEB ACADEMY
 
-learn.ow.academy <- Acceder al contenido
-subs.ow.academy <- Comprar suscripciones y Minar
+Versión de node: 12.22.5
+
+Versión de NEAR CLI: 3.4.2
+
+Compilar y desplegar contrato Contrato:
+
+./build.sh
+
+Una vez compilado y desplegado el contrato deberá asignarlo a la variable ID.
 
 ID=dev-1675454434094-81755855367013
 USDTCONTRACT=usdt.fakes.testnet
