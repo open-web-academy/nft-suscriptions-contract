@@ -8,7 +8,10 @@ use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
 use std::collections::HashMap;
 use near_sdk::collections::{LazyOption, LookupMap, UnorderedMap, UnorderedSet};
 
-pub const IMAGE1: &str = "QmQsrnCZ9uoYwqWS66CwhGQFEMGCMFtjntBisEGggaKL9o";
+pub const COMMON: &str = "QmdchH3pkgZYvmWiU5f2TUXkrzrhQmFYqsFpnZY2gzxFSX";
+pub const RARE: &str = "QmWp4Mfvv3czXTgk1qjAWmXLwSk4BrbMA5hksdWHz564GR";
+pub const SUPERRARE: &str = "QmaCGBCABiq3cuBKrUb2DSDMikq3VEWK3KLZTdKZFcv1WL";
+pub const LEGENDARY: &str = "Qmcn6Px9qii11fRoPWxaYsGzRwvBfFqwLGL5fr5BjxjyYt";
 
 #[derive(Serialize, Deserialize, BorshDeserialize, BorshSerialize, Debug, Clone)]
 #[serde(crate = "near_sdk::serde")]
@@ -221,22 +224,27 @@ impl Contract {
                 updated_at: None
             };
 
+            let mut nft_image = "".to_string();
+
             if type_suscription == "one_month".to_string() {
                 new_token.title = Some("Suscripción de 1 Mes".to_string());
+                nft_image = COMMON.to_string();
             }
             if type_suscription == "six_months".to_string() {
                 new_token.title = Some("Suscripción de 6 Meses".to_string());
+                nft_image = RARE.to_string();
             }
             if type_suscription == "one_year".to_string() {
                 new_token.title = Some("Suscripción de 1 Año".to_string());
+                nft_image = SUPERRARE.to_string();
             }
             if type_suscription == "permanent".to_string() {
                 new_token.title = Some("Suscripción Permanente".to_string());
+                nft_image = LEGENDARY.to_string();
             }
     
             let initial_storage_usage = env::storage_usage();
     
-            let nft_image = IMAGE1.to_string();
             new_token.media = Some(nft_image);
             let token_id: TokenId = (self.token_metadata_by_id.len()).to_string();
     
@@ -325,23 +333,28 @@ impl Contract {
                 updated_at: None
             };
     
+            let mut nft_image = "".to_string();
+
             // Verificar si tiene suscripción pendiente del tipo que está intentando mintear
             if type_suscription == "one_month".to_string() {
                 if user_counter_data.one_month > 0 { user_counter_data.one_month -= 1; new_token.title = Some("Suscripción de 1 Mes".to_string()); } else { log!("No tiene suscripcion pendiente de: {}", type_suscription.clone()); return false; }
+                nft_image = COMMON.to_string();
             }
             if type_suscription == "six_months".to_string() {
                 if user_counter_data.six_months > 0 { user_counter_data.six_months -= 1; new_token.title = Some("Suscripción de 6 Meses".to_string()); } else { log!("No tiene suscripcion pendiente de: {}", type_suscription.clone()); return false; }
+                nft_image = RARE.to_string();
             }
             if type_suscription == "one_year".to_string() {
                 if user_counter_data.one_year > 0 { user_counter_data.one_year -= 1; new_token.title = Some("Suscripción de 1 Año".to_string()); } else { log!("No tiene suscripcion pendiente de: {}", type_suscription.clone()); return false; }
+                nft_image = SUPERRARE.to_string();
             }
             if type_suscription == "permanent".to_string() {
                 if user_counter_data.permanent > 0 { user_counter_data.permanent -= 1; new_token.title = Some("Suscripción Permanente".to_string()); } else { log!("No tiene suscripcion pendiente de: {}", type_suscription.clone()); return false; }
+                nft_image = LEGENDARY.to_string();
             }
     
             let initial_storage_usage = env::storage_usage();
     
-            let nft_image = IMAGE1.to_string();
             new_token.media = Some(nft_image);
             let token_id: TokenId = (self.token_metadata_by_id.len()).to_string();
     

@@ -10,7 +10,7 @@ Compilar y desplegar contrato Contrato:
 
 Una vez compilado y desplegado el contrato deberá asignarlo a la variable ID.
 
-ID=dev-1675454434094-81755855367013
+ID=dev-1679345121236-70597611703139
 USDTCONTRACT=usdt.fakes.testnet
 
 Inicializar contrato:
@@ -35,7 +35,7 @@ Cambiar contrato de USDT
 
 Mostrar contador de suscripciones de usuario
 
-    near call $ID show_pendant_suscriptions --accountId yairnava.testnet
+    near call $ID show_pendant_suscriptions --accountId darkyairn.testnet
 
 Consultar balance de USDT
 
@@ -43,19 +43,19 @@ Consultar balance de USDT
 
 Transferir 10 USDT.e
 
-    near call $USDTCONTRACT ft_transfer_call '{"receiver_id": "'$ID'", "amount": "10000000", "msg": ""}' --accountId yairnava.testnet --depositYocto 1 --gas 300000000000000
+    near call $USDTCONTRACT ft_transfer_call '{"receiver_id": "'$ID'", "amount": "10000000", "msg": ""}' --accountId darkyairn.testnet --depositYocto 1 --gas 300000000000000
 
 Transferir 50 USDT.e
 
-    near call $USDTCONTRACT ft_transfer_call '{"receiver_id": "'$ID'", "amount": "50000000", "msg": ""}' --accountId yairnava.testnet --depositYocto 1 --gas 300000000000000
+    near call $USDTCONTRACT ft_transfer_call '{"receiver_id": "'$ID'", "amount": "50000000", "msg": ""}' --accountId darkyairn.testnet --depositYocto 1 --gas 300000000000000
 
 Transferir 100 USDT.e
 
-    near call $USDTCONTRACT ft_transfer_call '{"receiver_id": "'$ID'", "amount": "100000000", "msg": ""}' --accountId yairnava.testnet --depositYocto 1 --gas 300000000000000
+    near call $USDTCONTRACT ft_transfer_call '{"receiver_id": "'$ID'", "amount": "100000000", "msg": ""}' --accountId darkyairn.testnet --depositYocto 1 --gas 300000000000000
 
 Transferir 200 USDT.e
 
-    near call $USDTCONTRACT ft_transfer_call '{"receiver_id": "'$ID'", "amount": "200000000", "msg": ""}' --accountId yairnava.testnet --depositYocto 1 --gas 300000000000000
+    near call $USDTCONTRACT ft_transfer_call '{"receiver_id": "'$ID'", "amount": "200000000", "msg": ""}' --accountId darkyairn.testnet --depositYocto 1 --gas 300000000000000
 
 Consultar balance
 
@@ -63,13 +63,13 @@ Consultar balance
 
 Minar
 
-    near call $ID mint '{ "receiver_id": "'yairnava.testnet'", "type_suscription": "'one_month'" }' --accountId yairnava.testnet --deposit 0.01 --gas=300000000000000
+    near call $ID mint '{ "receiver_id": "'darkyairn.testnet'", "type_suscription": "'one_month'" }' --accountId darkyairn.testnet --deposit 0.01 --gas=300000000000000
 
-    near call $ID mint '{"receiver_id": "'yairnava.testnet'", "type_suscription": "'six_months'" }' --accountId yairnava.testnet --deposit 0.01 --gas=300000000000000
+    near call $ID mint '{"receiver_id": "'darkyairn.testnet'", "type_suscription": "'six_months'" }' --accountId darkyairn.testnet --deposit 0.01 --gas=300000000000000
 
-    near call $ID mint '{"receiver_id": "'yairnava.testnet'", "type_suscription": "'one_year'" }' --accountId yairnava.testnet --deposit 0.01 --gas=300000000000000
+    near call $ID mint '{"receiver_id": "'darkyairn.testnet'", "type_suscription": "'one_year'" }' --accountId darkyairn.testnet --deposit 0.01 --gas=300000000000000
 
-    near call $ID mint '{"receiver_id": "'yairnava.testnet'", "type_suscription": "'permanent'" }' --accountId yairnava.testnet --deposit 0.01 --gas=300000000000000
+    near call $ID mint '{"receiver_id": "'darkyairn.testnet'", "type_suscription": "'permanent'" }' --accountId darkyairn.testnet --deposit 0.01 --gas=300000000000000
 
 Consultar NFT
 
